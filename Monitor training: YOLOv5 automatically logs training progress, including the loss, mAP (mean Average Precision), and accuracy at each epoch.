@@ -1,0 +1,6 @@
+--img 640: Input image size of 640x640 pixels.
+--batch 16: Batch size.
+--epochs 50: Number of training epochs.
+--data ./data.yaml: The path to your data.yaml file.
+--weights yolov5s.pt: YOLOv5 small model pre-trained weights.
+--cache: Cache images for faster loading during training.
