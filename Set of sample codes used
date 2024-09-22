@@ -1,0 +1,22 @@
+
+!git clone https://github.com/ultralytics/yolov5
+%cd yolov5
+!pip install -r requirements.txt
+
+
+with open('data.yaml', 'w') as f:
+    f.write("""
+    train: ../datasets/images/train
+    val: ../datasets/images/val
+    nc: 2
+    names: ['Swimming', 'Drowning']
+    """)
+
+
+!python train.py --img 640 --batch 16 --epochs 50 --data ./data.yaml --weights yolov5s.pt --cache
+
+
+!python detect.py --weights runs/train/exp/weights/best.pt --img 640 --conf 0.4 --source /path/to/test/images_or_videos
+
+
+!cp runs/train/exp/weights/best.pt /content/gdrive/MyDrive/drowning_detection_model.pt
