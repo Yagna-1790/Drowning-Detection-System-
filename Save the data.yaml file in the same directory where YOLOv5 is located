@@ -1,0 +1,8 @@
+with open('data.yaml', 'w') as f:
+    f.write("""
+    train: ../datasets/images/train
+    val: ../datasets/images/val
+
+    nc: 2  # Number of classes
+    names: ['Swimming', 'Drowning']  # Class names
+    """)
